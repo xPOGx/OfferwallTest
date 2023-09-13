@@ -19,6 +19,9 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import com.example.offerwall.R
 
+/**
+ * Loading screen for any download operation from Internet
+ */
 @Composable
 fun LoadingScreen(
     modifier: Modifier = Modifier

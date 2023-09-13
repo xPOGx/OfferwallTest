@@ -12,6 +12,9 @@ import kotlinx.coroutines.launch
 class HomeViewModel(
     private val entityRepository: EntityRepository
 ) : ViewModel() {
+    /**
+     * [HomeUiState] so that UI responds to all changes
+     */
     var homeUiState = MutableStateFlow(HomeUiState())
         private set
 
@@ -19,6 +22,9 @@ class HomeViewModel(
         getIdsAndEntity()
     }
 
+    /**
+     * Load [Ids] and first [Entity] at the beginning
+     */
     private fun getIdsAndEntity() {
         viewModelScope.launch {
             val ids = entityRepository.getIds()
@@ -39,6 +45,9 @@ class HomeViewModel(
         }
     }
 
+    /**
+     * Load next [Entity] and check if any changes on server [Ids]
+     */
     fun getNextEntity() {
         updateStatus(Status.Loading)
         viewModelScope.launch {
@@ -64,6 +73,9 @@ class HomeViewModel(
         }
     }
 
+    /**
+     * Change [Status] in [HomeUiState]
+     */
     private fun updateStatus(status: Status) {
         homeUiState.update {
             it.copy(
@@ -73,6 +85,9 @@ class HomeViewModel(
         }
     }
 
+    /**
+     * Check if any changes on server [Ids]
+     */
     private suspend fun checkNewIds() {
         val ids = entityRepository.getIds()
         if (ids != homeUiState.value.ids && ids.data.isNotEmpty()) {
@@ -83,6 +98,9 @@ class HomeViewModel(
     }
 }
 
+/**
+ * [MutableStateFlow] for UI
+ */
 data class HomeUiState(
     val status: Status = Status.Loading,
     val currentIdList: Int = 0,
@@ -90,6 +108,9 @@ data class HomeUiState(
     val entity: Entity = Entity()
 )
 
+/**
+ * [Enum] for status downloads
+ */
 enum class Status {
     Loading,
     Done,

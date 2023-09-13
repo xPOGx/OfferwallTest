@@ -9,7 +9,7 @@ import com.example.offerwall.OfferwallApplication
 import com.example.offerwall.ui.home.HomeViewModel
 
 /**
- * Provides Factory to create instance of ViewModel for the entire FlightSearch app
+ * Provides Factory to create instance of ViewModel for the entire Offerwall app
  */
 object AppViewModelProvider {
     val Factory = viewModelFactory {

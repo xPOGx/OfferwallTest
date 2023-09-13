@@ -5,6 +5,9 @@ import com.example.offerwall.network.Entity
 import com.example.offerwall.network.EntityApiService
 import com.example.offerwall.network.Ids
 
+/**
+ * Repository interface for Offerwall App
+ */
 interface EntityRepository {
     suspend fun getIds(): Ids
     suspend fun getEntity(id: Int): Entity
@@ -12,6 +15,9 @@ interface EntityRepository {
 
 private const val ERROR_TAG = "Error download from internet"
 
+/**
+ * Implemented repository for Offerwall App
+ */
 class NetworkEntityRepository(
     private val entityApiService: EntityApiService
 ) : EntityRepository {

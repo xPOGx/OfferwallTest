@@ -7,15 +7,23 @@ import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
 
+/**
+ * Container interface for Offerwall App
+ */
 interface AppContainer {
     val entityRepository: EntityRepository
 }
 
+/**
+ * Implemented container for Offerwall App
+ */
 class AppDataContainer(
     private val context: Context
 ) : AppContainer {
+    // Api url
     private val baseUrl = "https://demo3005513.mockable.io/api/v1/"
 
+    // ignore optional fields
     private val json = Json {
         ignoreUnknownKeys = true
     }

@@ -16,6 +16,9 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import com.example.offerwall.R
 
+/**
+ * Error screen handler for EntityApiService.getEntitiesIds()
+ */
 @Composable
 fun ErrorScreen(
     modifier: Modifier = Modifier

@@ -32,6 +32,9 @@ import com.example.offerwall.ui.AppViewModelProvider
 import com.example.offerwall.ui.screens.ErrorScreen
 import com.example.offerwall.ui.screens.LoadingScreen
 
+/**
+ * Entry point for Offerwall App
+ */
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
